@@ -7,7 +7,7 @@ public class TestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        console..log("Min");
     }
 
     // Update is called once per frame
