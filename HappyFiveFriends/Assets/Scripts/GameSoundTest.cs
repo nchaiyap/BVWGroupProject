@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.ARKit;
@@ -14,27 +16,34 @@ public class GameSoundTest : MonoBehaviour
     public bool placementPoseIsValid = false;
     public GameObject placementIndicatorObject;
     public Pose placementPose;
+    public GameObject tray;
+    public GameObject placementIndicatorObject;
+    private bool trayIsEnabled = false;
     public AudioSource mkBG;
     public AudioSource gameOverSound;
-    public AudioSource ObjectCollision;
+    public AudioSource objectCollision;
     public AudioSource fallObject;
-    public AudioSource brokenPLate;
+    public AudioSource brokenPlate;
     public AudioSource winSoundYeah;
     public AudioSource winSoundWow;
     public AudioSource shakingTower;
     public AudioSource timeIsUp;
     public AudioSource clickButton;
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //background music starts
+        mkBG.play();
+        gameObject.GetComponent<Button>().onClick.AddListener(TurnOnAndOff);
+        tray.SetActive(trayIsEnabled);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //sound when click Play button
+        clickButton.play();
         // get the position at the middle of screen
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
@@ -61,9 +70,14 @@ public class GameSoundTest : MonoBehaviour
         {
             placementIndicatorObject.SetActive(true);
             placementIndicatorObject.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
+            objectCollision.play();
         }
         else {
             placementIndicatorObject.SetActive(false);
+            mkBG.stop();
+            brokenPlate.play();
+            gameOverSound.play();
+            
         }
 
         // detected button pressed, then reposition the character as aligning it with the plane
