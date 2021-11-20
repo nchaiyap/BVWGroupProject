@@ -15,7 +15,7 @@ public class GameSoundTest : MonoBehaviour
     public ARSessionOrigin arOrigin;
     public bool placementPoseIsValid = false;
     public GameObject placementIndicatorObject;
-    public Pose placementPose;
+    //public Pose placementPose;
     public GameObject tray;
     public GameObject placementIndicatorObject;
     private bool trayIsEnabled = false;
@@ -33,7 +33,6 @@ public class GameSoundTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //background music starts
         mkBG.play();
         gameObject.GetComponent<Button>().onClick.AddListener(TurnOnAndOff);
         tray.SetActive(trayIsEnabled);
@@ -42,8 +41,6 @@ public class GameSoundTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //sound when click Play button
-        clickButton.play();
         // get the position at the middle of screen
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
