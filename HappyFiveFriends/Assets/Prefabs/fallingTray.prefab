@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8035804273802842646}
   m_Layer: 0
   m_Name: fallingTray
-  m_TagString: Untagged
+  m_TagString: goodTray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823623540201035126}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
