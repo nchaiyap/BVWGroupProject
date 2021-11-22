@@ -10,35 +10,17 @@ public class GameController : MonoBehaviour
     public GameObject trayPrefab; // Dropping tray for stacking
     bool isGameEnd = false;
     int trayStackCount;
-    public float timeRemaining = 30;
-    public TMPro.TextMeshProUGUI remainingTime;
-    public bool timeIsRunning = false;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnTray());
-        timeIsRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         ControllerObj(ctrlObj);
-
-        if (timeIsRunning) {
-
-            if(timeRemaining > 0) {
-                remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
-                timeRemaining = timeRemaining - Time.deltaTime;
-            }
-        }
-        else {
-            timeIsRunning = false;
-            isGameEnd = true;
-            StopCoroutine(spawnTray());
-        }
     }
     
     void ControllerObj(GameObject obj)
@@ -58,7 +40,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    IEnumerator spawnTray();
+    IEnumerator spawnTray()
     {
         while (isGameEnd == false && trayStackCount < 10)
         {
