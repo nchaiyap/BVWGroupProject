@@ -39,7 +39,7 @@ public class Score : MonoBehaviour
 
         }
 
-        Debug.Log("Hit");
+        Debug.Log("Hit Peace");
         //score++;
     }
 
