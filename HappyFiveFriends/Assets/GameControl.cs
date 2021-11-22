@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    IEnumerator spawnTray();
+    IEnumerator spawnTray()
     {
         while (isGameEnd == false && trayStackCount < 10)
         {

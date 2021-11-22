@@ -700,11 +700,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1799475402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478cc34a3015f694cb9908245bbd147f, type: 3}
+  m_Script: {fileID: 11500000, guid: 79d66c336f1ba4b5e87ee4b779d09068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrlObj: {fileID: 1659258017}
-  trayPrefab: {fileID: 823623540201035126, guid: ea96ce058e2778745bb55f300aeb1118, type: 3}
 --- !u!4 &1799475404
 Transform:
   m_ObjectHideFlags: 0
