@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public TMPro.TextMeshProUGUI remainingTime;
     public bool timeIsRunning = false;
     public GameObject lastTray;
+    public AudioSource timeIsOver;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,19 @@ public class GameController : MonoBehaviour
 
         if (timeIsRunning) {
 
-            if(timeRemaining > 0) {
+            if(timeRemaining > 0) 
+            {
                 remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
                 timeRemaining = timeRemaining - Time.deltaTime;
+                timeIsOver.Play();
+
             } else {
                 timeIsRunning = false;
             }
         }
         else if(timeIsRunning == false) {
             isGameEnd = true;
+
             StopCoroutine(spawnTray());
         }
     }

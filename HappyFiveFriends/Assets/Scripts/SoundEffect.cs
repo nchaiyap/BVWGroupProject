@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound : MonoBehaviour
+public class SoundEffect : MonoBehaviour
 {
-    public AudioSource mkBGM;
-    public AudioSource endGameMKsound;
-    public AudioSource gameOverSound;
-    public AudioSource winSound;
-    
     // Start is called before the first frame update
     void Start()
     {
