@@ -6,7 +6,7 @@ using UnityEngine.Experimental.XR;
 using UnityEngine.XR.ARKit;
 using UnityEngine.XR.ARSubsystems;
 
-public class PlacementIndicator : MonoBehaviour
+public class PlacematIndicator : MonoBehaviour
 {
 
     public ARRaycastManager aRRaycastManager;
