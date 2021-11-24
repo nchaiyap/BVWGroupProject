@@ -33,10 +33,11 @@ public class GameController : MonoBehaviour
             if(timeRemaining > 0) {
                 remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
                 timeRemaining = timeRemaining - Time.deltaTime;
+            } else {
+                timeIsRunning = false;
             }
         }
-        else {
-            timeIsRunning = false;
+        else if(timeIsRunning == false) {
             isGameEnd = true;
             StopCoroutine(spawnTray());
         }
