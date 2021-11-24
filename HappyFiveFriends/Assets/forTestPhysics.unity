@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -854,6 +854,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.005, y: 0.0034000007, z: 0.0005300001}
   m_Center: {x: 0, y: 0, z: 0.00026500004}
+--- !u!114 &1659258020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659258017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a157b17a5a394307b198a8feb974c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mkBG: {fileID: 8300000, guid: 74b62d76495a14affa179a672e2032cb, type: 3}
+  endMKsound: {fileID: 0}
+  gameOverSound: {fileID: 0}
+  objectCollision: {fileID: 0}
+  brokenPlate: {fileID: 0}
+  winSoundYeah: {fileID: 0}
+  winSoundWow: {fileID: 0}
+  shakingTowerOne: {fileID: 0}
+  shakingTowerTwo: {fileID: 0}
+  timeIsUp: {fileID: 0}
+  clickButton: {fileID: 0}
 --- !u!114 &1659258023
 MonoBehaviour:
   m_ObjectHideFlags: 0
