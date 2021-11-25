@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1068,10 +1068,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ctrlObj: {fileID: 1659258017}
   trayPrefab: {fileID: 823623540201035126, guid: ea96ce058e2778745bb55f300aeb1118, type: 3}
+  badTrayPrefab: {fileID: 823623540201035126, guid: 52e0bdab47e051445b86e689e3261f8e, type: 3}
+  placeMat: {fileID: 1590261565}
   timeRemaining: 30
   remainingTime: {fileID: 1693867250}
   timeIsRunning: 0
-  lastTray: {fileID: 0}
 --- !u!4 &1799475404
 Transform:
   m_ObjectHideFlags: 0

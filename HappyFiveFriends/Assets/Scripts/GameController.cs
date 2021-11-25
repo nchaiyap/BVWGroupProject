@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     bool isGameEnd = false;
     int trayStackCount;
     GameObject lastTray;
+    public float timeRemaining = 30;
+    public TMPro.TextMeshProUGUI remainingTime;
+    public bool timeIsRunning = false;
 
     
 
@@ -20,12 +23,26 @@ public class GameController : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnTray());
+        timeIsRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         ControllerObj(ctrlObj);
+        if (timeIsRunning) {
+
+            if(timeRemaining > 0) 
+            {
+                remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
+                timeRemaining = timeRemaining - Time.deltaTime;
+            } 
+            else 
+            {
+                timeIsRunning = false;
+                isGameEnd = true;
+            }
+        }
         if(isGameEnd)
         {
             StopCoroutine(spawnTray());
