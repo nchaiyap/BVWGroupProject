@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/forTestPhysics.unity
+    path: Assets/Scenes/ARforTestPhysics.unity
     guid: c360bdbed0a82484c81c1f75571f7718
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Open Scene.unity
     guid: 8b64f288a467d4ef8bedbe4dea8ea48e
   - enabled: 1
