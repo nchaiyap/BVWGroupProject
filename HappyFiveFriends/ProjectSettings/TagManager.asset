@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - goodTray
+  - firstTray
+  - badTray
   layers:
   - Default
   - TransparentFX
