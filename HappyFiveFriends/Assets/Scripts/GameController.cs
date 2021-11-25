@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Set up variable for coding
-    public GameObject ctrlObj; // First tray for controlling direction
+    public GameObject ctrlObj;  //{get; private set;} // First tray for controlling direction
     public GameObject trayPrefab; // Dropping tray for stacking
+    public GameObject placeMat; // Define floor
     bool isGameEnd = false;
     int trayStackCount;
+    GameObject lastTray;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,11 @@ public class GameController : MonoBehaviour
     void Update()
     {
         ControllerObj(ctrlObj);
+        if(isGameEnd)
+        {
+            StopCoroutine(spawnTray());
+
+        }
     }
     
     void ControllerObj(GameObject obj)
@@ -30,7 +39,8 @@ public class GameController : MonoBehaviour
         rb = obj.GetComponent<Rigidbody>();
 
         // Set speed for force
-        float speed = 0.5f;
+        float speed = 0.4f;
+
         // Add force by input axis
     
         float xInput = Input.GetAxis("Horizontal");
@@ -46,14 +56,21 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
 
-            float pRand = 0.5f;  // Set Random for positioning dropping tray
+            float pRand = 0.2f;  // Set Random for positioning dropping tray
 
             float randomX = Random.Range(-pRand,pRand);
             float randomZ = Random.Range(-pRand,pRand);
             Vector3 randomSpawnPos = new Vector3(randomX,4f,randomZ);
 
-            Instantiate(trayPrefab,randomSpawnPos,Quaternion.identity);
+            lastTray = Instantiate(trayPrefab,randomSpawnPos,Quaternion.identity);
 
         }
     }
+
+    public void GameOver()
+    {
+        isGameEnd = true;
+    }
+
+    
 }
