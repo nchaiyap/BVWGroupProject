@@ -8,6 +8,7 @@ public class Sound : MonoBehaviour
     public AudioSource endGameMKsound;
     public AudioSource gameOverSound;
     public AudioSource winSound;
+    public AudioSource timeIsOver;
     
     // Start is called before the first frame update
     void Start()
