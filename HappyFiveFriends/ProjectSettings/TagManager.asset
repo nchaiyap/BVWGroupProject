@@ -6,6 +6,7 @@ TagManager:
   tags:
   - goodTray
   - firstTray
+  - badTray
   layers:
   - Default
   - TransparentFX

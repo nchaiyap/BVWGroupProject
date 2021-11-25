@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6195782086475067671}
   - component: {fileID: 8035804273802842646}
   m_Layer: 0
-  m_Name: fallingTray
-  m_TagString: goodTray
+  m_Name: fallingBadTray
+  m_TagString: badTray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2170891064326884992, guid: 520fc41267ba41a48a789e0994472c03, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba0215ee3f388594ba271deaf1b0529f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 520fc41267ba41a48a789e0994472c03, type: 3}
 --- !u!4 &6960085472805686261 stripped
