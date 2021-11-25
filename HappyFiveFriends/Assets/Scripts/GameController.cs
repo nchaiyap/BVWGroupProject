@@ -6,45 +6,29 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Set up variable for coding
-    public GameObject ctrlObj; // First tray for controlling direction
+    public GameObject ctrlObj;  //{get; private set;} // First tray for controlling direction
     public GameObject trayPrefab; // Dropping tray for stacking
+    public GameObject placeMat; // Define floor
     bool isGameEnd = false;
     int trayStackCount;
-    public float timeRemaining = 30;
-    public TMPro.TextMeshProUGUI remainingTime;
-    public bool timeIsRunning = false;
-    public GameObject lastTray;
-    public AudioSource timeIsOver;
+    GameObject lastTray;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(spawnTray());
-        timeIsRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         ControllerObj(ctrlObj);
-
-        if (timeIsRunning) {
-
-            if(timeRemaining > 0) 
-            {
-                remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
-                timeRemaining = timeRemaining - Time.deltaTime;
-                timeIsOver.Play();
-
-            } else {
-                timeIsRunning = false;
-            }
-        }
-        else if(timeIsRunning == false) {
-            isGameEnd = true;
-
+        if(isGameEnd)
+        {
             StopCoroutine(spawnTray());
+
         }
     }
     
@@ -55,7 +39,8 @@ public class GameController : MonoBehaviour
         rb = obj.GetComponent<Rigidbody>();
 
         // Set speed for force
-        float speed = 0.5f;
+        float speed = 0.4f;
+
         // Add force by input axis
     
         float xInput = Input.GetAxis("Horizontal");
@@ -71,7 +56,7 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
 
-            float pRand = 0.5f;  // Set Random for positioning dropping tray
+            float pRand = 0.2f;  // Set Random for positioning dropping tray
 
             float randomX = Random.Range(-pRand,pRand);
             float randomZ = Random.Range(-pRand,pRand);
@@ -81,4 +66,11 @@ public class GameController : MonoBehaviour
 
         }
     }
+
+    public void GameOver()
+    {
+        isGameEnd = true;
+    }
+
+    
 }
