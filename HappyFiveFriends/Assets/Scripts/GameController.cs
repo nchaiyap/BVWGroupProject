@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public float timeRemaining = 30;
     public TMPro.TextMeshProUGUI remainingTime;
     public bool timeIsRunning = false;
+    public GameObject lastTray;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +33,11 @@ public class GameController : MonoBehaviour
             if(timeRemaining > 0) {
                 remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
                 timeRemaining = timeRemaining - Time.deltaTime;
+            } else {
+                timeIsRunning = false;
             }
         }
-        else {
-            timeIsRunning = false;
+        else if(timeIsRunning == false) {
             isGameEnd = true;
             StopCoroutine(spawnTray());
         }
@@ -70,7 +72,7 @@ public class GameController : MonoBehaviour
             float randomZ = Random.Range(-pRand,pRand);
             Vector3 randomSpawnPos = new Vector3(randomX,4f,randomZ);
 
-            Instantiate(trayPrefab,randomSpawnPos,Quaternion.identity);
+            lastTray = Instantiate(trayPrefab,randomSpawnPos,Quaternion.identity);
 
         }
     }
