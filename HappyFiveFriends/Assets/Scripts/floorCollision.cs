@@ -25,9 +25,15 @@ public class floorCollision : MonoBehaviour
         {
             
             collision.transform.localScale =  collision.transform.localScale / 2;
-            Debug.Log("collide!");
+            //Debug.Log("collide!");
+            Destroy(collision.gameObject);
             gameController.GameOver();
 
+        }
+        else if(collision.gameObject.tag == "badTray")
+        {
+            collision.transform.localScale =  collision.transform.localScale / 2;
+            Destroy(collision.gameObject);
         }
     }
 }

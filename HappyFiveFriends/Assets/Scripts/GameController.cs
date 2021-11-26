@@ -8,10 +8,14 @@ public class GameController : MonoBehaviour
     // Set up variable for coding
     public GameObject ctrlObj;  //{get; private set;} // First tray for controlling direction
     public GameObject trayPrefab; // Dropping tray for stacking
+    public GameObject badTrayPrefab; // Dropping bad tray
     public GameObject placeMat; // Define floor
     bool isGameEnd = false;
     int trayStackCount;
     GameObject lastTray;
+    public float timeRemaining = 30;
+    public TMPro.TextMeshProUGUI remainingTime;
+    public bool timeIsRunning = false;
 
     
 
@@ -19,12 +23,26 @@ public class GameController : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnTray());
+        timeIsRunning = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         ControllerObj(ctrlObj);
+        if (timeIsRunning) {
+
+            if(timeRemaining > 0) 
+            {
+                remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
+                timeRemaining = timeRemaining - Time.deltaTime;
+            } 
+            else 
+            {
+                timeIsRunning = false;
+                isGameEnd = true;
+            }
+        }
         if(isGameEnd)
         {
             StopCoroutine(spawnTray());
@@ -60,9 +78,10 @@ public class GameController : MonoBehaviour
 
             float randomX = Random.Range(-pRand,pRand);
             float randomZ = Random.Range(-pRand,pRand);
-            Vector3 randomSpawnPos = new Vector3(randomX,4f,randomZ);
+            Vector3 randomSpawnPos = new Vector3(randomX,6f,randomZ);
+            GameObject[] trayArray  = new GameObject[] {trayPrefab,badTrayPrefab,trayPrefab};
 
-            lastTray = Instantiate(trayPrefab,randomSpawnPos,Quaternion.identity);
+            lastTray = Instantiate(trayArray[Random.Range(0,3)],randomSpawnPos,Quaternion.identity);
 
         }
     }
