@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour
     public float timeRemaining = 30;
     public TMPro.TextMeshProUGUI remainingTime;
     public bool timeIsRunning = false;
+    public Score scoreManager;
+
+    public int stackCount; // Set up for stack count
 
     
 
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine(spawnTray());
         timeIsRunning = true;
+        stackCount =1;
     }
 
     // Update is called once per frame
@@ -46,6 +50,8 @@ public class GameController : MonoBehaviour
         if(isGameEnd)
         {
             StopCoroutine(spawnTray());
+            
+            SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
 
         }
     }
@@ -89,6 +95,11 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         isGameEnd = true;
+    }
+
+    public void AddStackCount(int count)
+    {
+        stackCount = stackCount + count;
     }
 
     
