@@ -10,6 +10,8 @@ public class TrayButton : MonoBehaviour
     public GameObject tray;
     public GameObject placementIndicatorObject;
     private bool trayIsEnabled = false;
+    public AudioSource mouseClicking;
+
     void Start()
     {
         gameObject.GetComponent<Button>().onClick.AddListener(TurnOnAndOff);
@@ -20,6 +22,7 @@ public class TrayButton : MonoBehaviour
         Debug.Log("TurnOnAndOff");
         if(!trayIsEnabled) {
             trayIsEnabled = true;
+            mouseClicking.Play();
             tray.SetActive(trayIsEnabled);
         }
         tray.transform.position = new Vector3(placementIndicatorObject.transform.position.x, placementIndicatorObject.transform.position.y, placementIndicatorObject.transform.position.z);
