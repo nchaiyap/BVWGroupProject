@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 2015821327}
   m_Layer: 0
   m_Name: AR Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   aRRaycastManager: {fileID: 2032133084}
   arOrigin: {fileID: 2032133088}
   placementPoseIsValid: 0
-  placementIndicatorObject: {fileID: 95717609}
+  placementIndicatorObject: {fileID: 0}
   placementPose:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}

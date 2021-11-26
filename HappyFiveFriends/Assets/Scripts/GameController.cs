@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ControllerObj(ctrlObj);
+        //ControllerObj(ctrlObj);
         TouchControlObj(ctrlObj);
         if (timeIsRunning) {
 
