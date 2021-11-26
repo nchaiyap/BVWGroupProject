@@ -20,6 +20,10 @@ public class GameController : MonoBehaviour
 
     public int stackCount; // Set up for stack count
 
+    private float dragDistance; // Set up for touch control obj
+    private Vector3 lastTouchPos;
+    private Vector3 currentTouchPos;
+
     
 
     // Start is called before the first frame update
@@ -28,12 +32,14 @@ public class GameController : MonoBehaviour
         StartCoroutine(spawnTray());
         timeIsRunning = true;
         stackCount =1;
+        dragDistance = Screen.width * 5 / 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ControllerObj(ctrlObj);
+        //ControllerObj(ctrlObj);
+        TouchControlObj(ctrlObj);
         if (timeIsRunning) {
 
             if(timeRemaining > 0) 
@@ -72,6 +78,32 @@ public class GameController : MonoBehaviour
 
         rb.AddForce(xInput*speed,0,zInput*speed,ForceMode.Impulse);
 
+    }
+
+    void TouchControlObj (GameObject obj)
+    {
+        Rigidbody rb;
+        rb = obj.GetComponent<Rigidbody>();
+        
+        // for control obj by touch screen
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                lastTouchPos = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                currentTouchPos = lastTouchPos;
+                float xInput = currentTouchPos.x;
+                float zInput = currentTouchPos.z;
+                rb.AddForce(xInput*dragDistance,0, zInput*dragDistance,ForceMode.Impulse);
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                lastTouchPos = currentTouchPos = new Vector3();
+            }
+        }
     }
 
     IEnumerator spawnTray()

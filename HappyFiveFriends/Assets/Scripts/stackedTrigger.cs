@@ -9,6 +9,7 @@ public class stackedTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stackCount=0;
         
     }
 
@@ -24,7 +25,7 @@ public class stackedTrigger : MonoBehaviour
         {
             //gameController.AddStackCount(1);
             //Debug.Log("stack count is "+gameController.stackCount);
-            stackCount +=2;
+            stackCount = stackCount +1;
 
         }
         
