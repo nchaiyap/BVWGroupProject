@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public static Score Instance {get; private set;}
     //public Rigidbody BoxRigid;
     public int score;
     public TMPro.TextMeshProUGUI txtScore;
-    GameController gameController;
+    //GameController gameController;
     
 
     // Start is called before the first frame update
     void Start()
     {
         //score = 100;
-        gameController = (this.gameObject).GetComponent<GameController>();
+        //gameController = (this.gameObject).GetComponent<GameController>();
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class Score : MonoBehaviour
 
         if(score <= 0)
         {
-            gameController.GameOver();
+            GameController.Instance.GameOver();
             //Debug.Log("Game Over");
         }
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour 
 {
+    public static GameController Instance {get; private set;}
     // Set up variable for coding
     public GameObject ctrlObj;  //{get; private set;} // First tray for controlling direction
     public GameObject trayPrefab; // Dropping tray for stacking
@@ -23,24 +24,31 @@ public class GameController : MonoBehaviour
     private float dragDistance; // Set up for touch control obj
     private Vector3 lastTouchPos;
     private Vector3 currentTouchPos;
-
+    private int i;
     
+    List<GameObject> stackedList = new List<GameObject>();
+
+     
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager.ResetScore(100);
+        Instance = this;
+        Score.Instance.ResetScore(300);
+        //Score.Instance.ResetScore(200);
         StartCoroutine(spawnTray());
         timeIsRunning = true;
         stackCount =0;
         dragDistance = Screen.width * 5 / 100;
+        //var stackedList = new List<GameObject>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         ControllerObj(ctrlObj);
-        TouchControlObj(ctrlObj);
+        //TouchControlObj(ctrlObj);
         if (timeIsRunning) {
 
             if(timeRemaining > 0) 
@@ -63,6 +71,7 @@ public class GameController : MonoBehaviour
             Invoke("LoadEndScene",2.0f);
 
         }
+        
     }
     
     void ControllerObj(GameObject obj)
@@ -121,8 +130,9 @@ public class GameController : MonoBehaviour
             float randomZ = Random.Range(-pRand,pRand);
             Vector3 randomSpawnPos = new Vector3(randomX,6f,randomZ);
             GameObject[] trayArray  = new GameObject[] {trayPrefab,badTrayPrefab,trayPrefab};
-
+            
             lastTray = Instantiate(trayArray[Random.Range(0,3)],randomSpawnPos,Quaternion.identity);
+            stackedList.Add(lastTray) ;
 
         }
     }

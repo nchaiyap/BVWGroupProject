@@ -10,11 +10,12 @@ public class firstTrayTrigger : MonoBehaviour
     public int stackCount;
     Score scoreManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
         stackCount = 0;
-        scoreManager = gameController.GetComponent<Score>();
+        //scoreManager = gameController.GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class firstTrayTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag == "goodTray")
+        if(collider.gameObject.tag == "stacked")
         {
             //gameController.AddStackCount(1);
             //Debug.Log("stack count is "+gameController.stackCount);
@@ -42,12 +43,14 @@ public class firstTrayTrigger : MonoBehaviour
     {
         if(collision.gameObject.tag == "goodTray")
         {
-            scoreManager.AddScore(100);
+            //scoreManager.AddScore(100);
+            Score.Instance.AddScore(100);
             collision.gameObject.tag = "stacked";
         }
         else if (collision.gameObject.tag == "badTray")
         {
-            scoreManager.RemoveScore(100);
+            //scoreManager.RemoveScore(100);
+            Score.Instance.RemoveScore(100);
             collision.transform.localScale =  collision.transform.localScale / 2;
             Destroy(collision.gameObject);
 
