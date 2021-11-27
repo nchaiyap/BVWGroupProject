@@ -59,5 +59,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.meta
-SoundTestGame/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/EditorAssetResources/Icons/Windows/GeneratePropertyProvidersWindow/GeneratePropertyProvidersPage@32x.png.meta
+
+*.meta
+*.meta
+*.meta
+
+*.meta
 *.meta
