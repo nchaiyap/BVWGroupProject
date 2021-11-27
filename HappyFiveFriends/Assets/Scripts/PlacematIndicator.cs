@@ -37,6 +37,7 @@ public class PlacematIndicator : MonoBehaviour
         if (placementPoseIsValid) {
             // align (both position & rotation aka pose) the crosshair with the detected planes
             placementPose = hits[0].pose;
+            GameController.Instance.isPlacematFound = true;
         }
 
         var cameraForward = Camera.current.transform.forward;

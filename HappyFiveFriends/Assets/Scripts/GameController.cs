@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     private Vector3 lastTouchPos;
     private Vector3 currentTouchPos;
     private int i;
-    
+    public bool isPlacematFound = false;
     List<GameObject> stackedList = new List<GameObject>();
 
      
@@ -49,26 +49,38 @@ public class GameController : MonoBehaviour
     {
         ControllerObj(ctrlObj);
         //TouchControlObj(ctrlObj);
-        if (timeIsRunning) {
+       
+        //For Testing without AR
+        //isPlacematFound = true;
+        
+       if(isPlacematFound)
+       {
+           if (timeIsRunning) 
+            {
+                
+                //Start Game condition
+                if(timeRemaining > 0) 
+                {
+                    remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
+                    timeRemaining = timeRemaining - Time.deltaTime;
+                } 
+                else 
+                {
+                    timeIsRunning = false;
+                    isGameEnd = true;
+                    remainingTime.text = "Time's UP!!";
+                }
 
-            if(timeRemaining > 0) 
-            {
-                remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
-                timeRemaining = timeRemaining - Time.deltaTime;
-            } 
-            else 
-            {
-                timeIsRunning = false;
-                isGameEnd = true;
-                remainingTime.text = "Time's UP!!";
+           
             }
-        }
+       }
+        
         if(isGameEnd)
         {
             StopCoroutine(spawnTray());
             
             //SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
-            Invoke("LoadEndScene",2.0f);
+            Invoke("LoadEndScene",1.2f);
 
         }
         
@@ -122,17 +134,21 @@ public class GameController : MonoBehaviour
     {
         while (isGameEnd == false && trayStackCount < 10)
         {
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f);
 
             float pRand = 0.2f;  // Set Random for positioning dropping tray
 
             float randomX = Random.Range(-pRand,pRand);
             float randomZ = Random.Range(-pRand,pRand);
-            Vector3 randomSpawnPos = new Vector3(randomX,6f,randomZ);
+            
+            Vector3 randomSpawnPos = new Vector3(randomX + ctrlObj.transform.position.x, 6f, randomZ + ctrlObj.transform.position.z);
             GameObject[] trayArray  = new GameObject[] {trayPrefab,badTrayPrefab,trayPrefab};
             
-            lastTray = Instantiate(trayArray[Random.Range(0,3)],randomSpawnPos,Quaternion.identity);
-            stackedList.Add(lastTray) ;
+            if(isPlacematFound)
+            {
+                lastTray = Instantiate(trayArray[Random.Range(0,3)],randomSpawnPos,Quaternion.identity);
+                stackedList.Add(lastTray) ;
+            }
 
         }
     }
