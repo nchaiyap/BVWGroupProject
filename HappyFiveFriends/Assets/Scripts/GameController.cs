@@ -29,16 +29,17 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager.ResetScore(100);
         StartCoroutine(spawnTray());
         timeIsRunning = true;
-        stackCount =1;
+        stackCount =0;
         dragDistance = Screen.width * 5 / 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ControllerObj(ctrlObj);
+        ControllerObj(ctrlObj);
         TouchControlObj(ctrlObj);
         if (timeIsRunning) {
 
@@ -51,13 +52,15 @@ public class GameController : MonoBehaviour
             {
                 timeIsRunning = false;
                 isGameEnd = true;
+                remainingTime.text = "Time's UP!!";
             }
         }
         if(isGameEnd)
         {
             StopCoroutine(spawnTray());
             
-            SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
+            //SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
+            Invoke("LoadEndScene",2.0f);
 
         }
     }
@@ -110,7 +113,7 @@ public class GameController : MonoBehaviour
     {
         while (isGameEnd == false && trayStackCount < 10)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
 
             float pRand = 0.2f;  // Set Random for positioning dropping tray
 
@@ -134,5 +137,8 @@ public class GameController : MonoBehaviour
         stackCount = stackCount + count;
     }
 
-    
+    void LoadEndScene()
+    {
+        SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
+    }
 }

@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public Rigidbody BoxRigid;
+    //public Rigidbody BoxRigid;
     public int score;
     public TMPro.TextMeshProUGUI txtScore;
+    GameController gameController;
     
+
     // Start is called before the first frame update
     void Start()
     {
-        score = 300;
+        //score = 100;
+        gameController = (this.gameObject).GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         txtScore.text = "Score: " + score;
+
+        //For Test method
+        /*
         if (Input.GetKeyDown(KeyCode.A))
             AddScore(50);
 
@@ -26,6 +33,13 @@ public class Score : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
             ResetScore(300);
+        */
+
+        if(score <= 0)
+        {
+            gameController.GameOver();
+            //Debug.Log("Game Over");
+        }
 
     }
     public void AddScore(int amount)
@@ -34,11 +48,11 @@ public class Score : MonoBehaviour
     }
     public void RemoveScore(int amount)
     {
-        score -= -amount;
+        score -= amount;
     }
     public void ResetScore(int amount)
     {
-        score = 300;
+        score = amount;
     }
 
 }

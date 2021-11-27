@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackCount: 0
+  gameController: {fileID: 6092678779832620193, guid: a62264984e0a2a54284ea433e1676cf5, type: 3}
 --- !u!1001 &7997427480693145114
 PrefabInstance:
   m_ObjectHideFlags: 0
