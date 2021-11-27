@@ -24,8 +24,9 @@ public class GameController : MonoBehaviour
     private float dragDistance; // Set up for touch control obj
     private Vector3 lastTouchPos;
     private Vector3 currentTouchPos;
-    private int i;
     public bool isPlacematFound = false;
+
+    public Pose placematPose;
     List<GameObject> stackedList = new List<GameObject>();
 
      
@@ -38,8 +39,8 @@ public class GameController : MonoBehaviour
         //Score.Instance.ResetScore(200);
         StartCoroutine(spawnTray());
         timeIsRunning = true;
-        stackCount =0;
-        dragDistance = Screen.width * 5 / 100;
+        //stackCount =0;
+        //dragDistance = Screen.width * 5 / 100;
         //var stackedList = new List<GameObject>();
 
     }
@@ -49,6 +50,8 @@ public class GameController : MonoBehaviour
     {
         ControllerObj(ctrlObj);
         //TouchControlObj(ctrlObj);
+
+        placeMat.transform.position = placematPose.position;
        
         //For Testing without AR
         //isPlacematFound = true;

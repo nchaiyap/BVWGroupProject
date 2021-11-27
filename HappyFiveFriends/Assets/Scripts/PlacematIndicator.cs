@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.ARKit;
+//using UnityEngine.XR.ARCore;
 using UnityEngine.XR.ARSubsystems;
 
 public class PlacematIndicator : MonoBehaviour
@@ -37,6 +38,7 @@ public class PlacematIndicator : MonoBehaviour
         if (placementPoseIsValid) {
             // align (both position & rotation aka pose) the crosshair with the detected planes
             placementPose = hits[0].pose;
+            GameController.Instance.placematPose = placementPose;
             GameController.Instance.isPlacematFound = true;
         }
 

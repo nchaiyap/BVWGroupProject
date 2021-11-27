@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &586436085
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1641,7 +1641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2032133084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   aRRaycastManager: {fileID: 2032133084}
   arOrigin: {fileID: 2032133088}
   placementPoseIsValid: 0
-  placementIndicatorObject: {fileID: 0}
+  placementIndicatorObject: {fileID: 95717609}
   placementPose:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
