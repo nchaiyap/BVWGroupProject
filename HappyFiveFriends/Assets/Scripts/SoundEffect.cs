@@ -4,30 +4,53 @@ using UnityEngine;
 
 public class SoundEffect : MonoBehaviour
 {
-    //Stackingsound will play when get good tray
-    public AudioSource stackingSound;
-    //Nope will play when get the bad tray
-    public AudioSource nopeSound;
-    //Brokenplate will play when all trays fall on the ground
-    public AudioSource brokenPlate;
-    //ShakingTowers will play when trays almost fall
-    public AudioSource shakingTower;
-    //GameOver will play when all plates fall down
-    public AudioSource gameOver;
-    //KidsYeah will play when you win
-    public AudioSource kidsYeah;
-    //TimerSound will play when time less than 10 seconds
-    public AudioSource timerSound;
+    public AudioSource bgm;
+    public AudioSource sfx;
+    public AudioSource announce;
+    public AudioClip stackingSound;
+    public AudioClip nopeSound;
+    public AudioClip brokenPlate;
+    public AudioClip shakingTower;
+    public AudioClip gameOver;
+    public AudioClip kidsYeah;
+    public AudioClip timerSound;
+    public AudioClip backgroundMusic;
+    public AudioClip endBackground;
+    public float startingPitch = 1f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //random sounds bgm
+        AudioClip[] bgList= new AudioClip[]{backgroundMusic, endBackground}; 
+        bgm.clip = bgList[Random.Range(0,2)];
+        bgm.Play();
+        bgm.pitch = startingPitch;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //bg music
+        if(Input.GetKey(KeyCode.Q))
+        {
+            bgm.Play();
+            bgm.pitch = +4f;
+        }
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            AudioClip[] sfxList= new AudioClip[]{stackingSound,nopeSound,shakingTower,brokenPlate}; 
+            sfx.clip = sfxList[Random.Range(0,5)];
+            sfx.Play();
+        }
+
+        if(Input.GetKey (KeyCode.E))
+        {
+            AudioClip[] announceList= new AudioClip[]{gameOver,kidsYeah,timerSound}; 
+            announce.clip = announceList[Random.Range(0,4)];
+            announce.Play();
+        }
     }
 }
