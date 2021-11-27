@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundEffect : MonoBehaviour
 {
+    public static SoundEffect Instance {get; private set;}
     public AudioSource bgm;
     public AudioSource sfx;
     public AudioSource announce;
@@ -22,17 +23,20 @@ public class SoundEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         //random sounds bgm
-        AudioClip[] bgList= new AudioClip[]{backgroundMusic, endBackground}; 
-        bgm.clip = bgList[Random.Range(0,2)];
-        bgm.Play();
-        bgm.pitch = startingPitch;
+        //AudioClip[] bgList= new AudioClip[]{backgroundMusic, endBackground}; 
+        //bgm.clip = bgList[Random.Range(0,2)];
+        //bgm.Play();
+        //bgm.pitch = startingPitch;
     }
 
     // Update is called once per frame
     void Update()
     {
         //bg music
+        //For Test coding
+        /*
         if(Input.GetKey(KeyCode.Q))
         {
             bgm.Play();
@@ -52,5 +56,6 @@ public class SoundEffect : MonoBehaviour
             announce.clip = announceList[Random.Range(0,4)];
             announce.Play();
         }
+        */
     }
 }

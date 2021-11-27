@@ -24,7 +24,7 @@ public class floorCollision : MonoBehaviour
         //Collider collider;
         if(collision.gameObject.tag == "goodTray" )
         {
-            
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.nopeSound);
             collision.transform.localScale =  collision.transform.localScale / 2;
             //Debug.Log("collide!");
             Destroy(collision.gameObject);
@@ -35,11 +35,13 @@ public class floorCollision : MonoBehaviour
         }
         else if(collision.gameObject.tag == "badTray")
         {
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.kidsYeah);
             collision.transform.localScale =  collision.transform.localScale / 2;
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "stacked")
         {
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.nopeSound);
             //collision.transform.localScale =  collision.transform.localScale / 2;
             //Destroy(collision.gameObject);
             //gameController.GameOver();
