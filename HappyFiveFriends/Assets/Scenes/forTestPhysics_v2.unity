@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -538,15 +538,15 @@ MonoBehaviour:
   bgm: {fileID: 1817885333}
   sfx: {fileID: 1616170073}
   announce: {fileID: 1955905241}
-  stackingSound: {fileID: 0}
+  stackingSound: {fileID: 8300000, guid: 9c4e5973fc34b484c8372f12ef101194, type: 3}
   nopeSound: {fileID: 8300000, guid: fb290d0deb07642a1abec6170e05c14e, type: 3}
-  brokenPlate: {fileID: 0}
-  shakingTower: {fileID: 0}
-  gameOver: {fileID: 0}
+  brokenPlate: {fileID: 8300000, guid: 9b154146ea8454162b4bfb0f8a479e24, type: 3}
+  shakingTower: {fileID: 8300000, guid: f53391c35f5534cd389c05c212a409a2, type: 3}
+  gameOver: {fileID: 8300000, guid: 944ad36ae2148438b97b1d5a56341d73, type: 3}
   kidsYeah: {fileID: 8300000, guid: fab60ff445fda414a92470444313aa67, type: 3}
-  timerSound: {fileID: 0}
-  backgroundMusic: {fileID: 0}
-  endBackground: {fileID: 0}
+  timerSound: {fileID: 8300000, guid: 7f10243b7d5004b85a37223b0f7f73a6, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: a8c66683c8fde4d97bf9666bd7fd27e0, type: 3}
+  endBackground: {fileID: 8300000, guid: 6a3cacc942b2a4abe9527b5f62bdc5c4, type: 3}
   startingPitch: 1
 --- !u!4 &1058657766
 Transform:
