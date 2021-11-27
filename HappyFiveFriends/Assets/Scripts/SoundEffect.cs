@@ -41,20 +41,16 @@ public class SoundEffect : MonoBehaviour
 
         if(Input.GetKey(KeyCode.W))
         {
-            AudioClip[] sfxList= new AudioClip[]{stackingSound,nopeSound,shakingTower,brokenPlate,timerSound}; 
+            AudioClip[] sfxList= new AudioClip[]{stackingSound,nopeSound,shakingTower,brokenPlate}; 
             sfx.clip = sfxList[Random.Range(0,5)];
             sfx.Play();
         }
 
         if(Input.GetKey (KeyCode.E))
         {
-            AudioClip[] announceList= new AudioClip[]{gameOver,kidsYeah}; 
-            announce.clip = announceList[Random.Range(0,2)];
-            bgm.Stop();
-            sfx.Stop();
+            AudioClip[] announceList= new AudioClip[]{gameOver,kidsYeah,timerSound}; 
+            announce.clip = announceList[Random.Range(0,4)];
             announce.Play();
-            
         }
-        
     }
 }
