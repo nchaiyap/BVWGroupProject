@@ -75,6 +75,12 @@ public class GameController : MonoBehaviour
                 {
                     remainingTime.text = "Time Remaining: " + Mathf.FloorToInt(timeRemaining % 60);
                     timeRemaining = timeRemaining - Time.deltaTime;
+                    if(timeRemaining < 5)
+                    {
+                        //bgAudioSrc.Pause();
+                        SoundEffect.Instance.bgm.pitch = 1.2f;
+
+                    }
                 } 
                 else 
                 {

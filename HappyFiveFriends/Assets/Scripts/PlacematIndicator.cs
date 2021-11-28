@@ -6,6 +6,7 @@ using UnityEngine.Experimental.XR;
 //using UnityEngine.XR.ARKit;
 using UnityEngine.XR.ARCore;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 
 public class PlacematIndicator : MonoBehaviour
 {
@@ -15,11 +16,11 @@ public class PlacematIndicator : MonoBehaviour
     public bool placementPoseIsValid = false;
     public GameObject placementIndicatorObject;
     public Pose placementPose;
-
+    Button btnRelocate;
     // Start is called before the first frame update
     void Start()
     {
-        
+        btnRelocate = GameObject.Find("Relocate_Button").GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -59,6 +60,14 @@ public class PlacematIndicator : MonoBehaviour
         }
 
         // detected button pressed, then reposition the character as aligning it with the plane
+        btnRelocate.onClick.AddListener(RelocateObjToScrCenter);
 
+    }
+
+    private void RelocateObjToScrCenter()
+    {
+        placementIndicatorObject.SetActive(true);
+        placementIndicatorObject.transform.position = placementPose.position;
+        placementIndicatorObject.transform.rotation = placementPose.rotation;
     }
 }
