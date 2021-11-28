@@ -10,13 +10,18 @@ public class Score : MonoBehaviour
     public TMPro.TextMeshProUGUI txtScore;
     //GameController gameController;
     
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         //score = 100;
         //gameController = (this.gameObject).GetComponent<GameController>();
-        Instance = this;
+        //Instance = this;
     }
 
     // Update is called once per frame

@@ -29,12 +29,16 @@ public class GameController : MonoBehaviour
     public Pose placematPose;
     List<GameObject> stackedList = new List<GameObject>();
 
-     
-
+    void Awake()
+    {
+        DontDestroyOnLoad (transform.gameObject);
+        Instance = this;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
+        //Instance = this;
         
         //scoreManager = GameObject.GetComponent<Score>();
         scoreManager.ResetScore(300);
