@@ -15,7 +15,7 @@ public class firstTrayTrigger : MonoBehaviour
     void Start()
     {
         stackCount = 0;
-        //scoreManager = gameController.GetComponent<Score>();
+        scoreManager = gameController.GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -43,14 +43,16 @@ public class firstTrayTrigger : MonoBehaviour
     {
         if(collision.gameObject.tag == "goodTray")
         {
-            //scoreManager.AddScore(100);
-            Score.Instance.AddScore(100);
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.kidsYeah);
+            scoreManager.AddScore(100);
+            //Score.Instance.AddScore(100);
             collision.gameObject.tag = "stacked";
         }
         else if (collision.gameObject.tag == "badTray")
         {
-            //scoreManager.RemoveScore(100);
-            Score.Instance.RemoveScore(100);
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.nopeSound);
+            scoreManager.RemoveScore(100);
+            //Score.Instance.RemoveScore(100);
             collision.transform.localScale =  collision.transform.localScale / 2;
             Destroy(collision.gameObject);
 
