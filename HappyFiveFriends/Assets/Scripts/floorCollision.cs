@@ -28,8 +28,8 @@ public class floorCollision : MonoBehaviour
             collision.transform.localScale =  collision.transform.localScale / 2;
             //Debug.Log("collide!");
             Destroy(collision.gameObject);
-            //scoreManager.RemoveScore(50);
-            Score.Instance.RemoveScore(50);
+            scoreManager.RemoveScore(50);
+            //Score.Instance.RemoveScore(50);
             //gameController.GameOver();
 
         }

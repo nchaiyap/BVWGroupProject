@@ -6,13 +6,14 @@ public class stackedTrigger : MonoBehaviour
 {
     public int stackCount;
     public GameController gameController;
+    public Score scoreManager;
     
     
     // Start is called before the first frame update
     void Start()
     {
         stackCount=0;
-        Score scoreManager = gameController.GetComponent<Score>();
+        //Score scoreManager = gameController.GetComponent<Score>();
     }
 
 
@@ -42,19 +43,22 @@ public class stackedTrigger : MonoBehaviour
     {
         if(collision.gameObject.tag == "badTray")
         {
-            Debug.Log("collide Bad Tray");
-            //scoreManager.RemoveScore(100);
-            Score.Instance.RemoveScore(100);
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.nopeSound);
+            //Debug.Log("collide Bad Tray");
+            scoreManager.RemoveScore(100);
+            //Score.Instance.RemoveScore(100);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "goodTray")
         {
-            Debug.Log("collide Good tray");
-            //scoreManager.AddScore(100);
-            Score.Instance.AddScore(100);
+            SoundEffect.Instance.sfx.PlayOneShot(SoundEffect.Instance.kidsYeah);
+            //Debug.Log("collide Good tray");
+            scoreManager.AddScore(100);
+            //Score.Instance.AddScore(100);
             collision.gameObject.tag = "stacked";
         }
 
     }
-    
+
+  
 }

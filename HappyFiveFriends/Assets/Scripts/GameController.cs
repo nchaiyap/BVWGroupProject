@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
         Instance = this;
         
         //scoreManager = GameObject.GetComponent<Score>();
-        scoreManager.ResetScore(200);
+        scoreManager.ResetScore(300);
 
         //Score.Instance.ResetScore(300);
         StartCoroutine(spawnTray());
@@ -53,6 +53,8 @@ public class GameController : MonoBehaviour
     {
         ControllerObj(ctrlObj);
         //TouchControlObj(ctrlObj);
+
+        SetParentStackedTag();
 
         placeMat.transform.position = placematPose.position;
        
@@ -173,4 +175,16 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("End Scene",LoadSceneMode.Single);
     }
+
+      void SetParentStackedTag()
+    {
+        GameObject[] stackedTagList;
+        //List<GameObject> stackedTagList = new List<GameObject>();
+        stackedTagList = GameObject.FindGameObjectsWithTag("stacked");
+        foreach (GameObject obj in stackedTagList)
+        {
+            obj.transform.SetParent(ctrlObj.transform);
+        }
+    }
+    
 }
