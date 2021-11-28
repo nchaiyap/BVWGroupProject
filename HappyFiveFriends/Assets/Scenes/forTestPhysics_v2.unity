@@ -751,7 +751,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!64 &1590261566
 MeshCollider:
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1798328060328637282, guid: 933286bc5b4d44620b9c7113cb515bdc, type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &2032133088
 MonoBehaviour:
   m_ObjectHideFlags: 0

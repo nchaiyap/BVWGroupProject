@@ -144,7 +144,7 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
 
-            float pRand = 0.2f;  // Set Random for positioning dropping tray
+            float pRand = 0.5f;  // Set Random for positioning dropping tray
 
             float randomX = Random.Range(-pRand,pRand);
             float randomZ = Random.Range(-pRand,pRand);
