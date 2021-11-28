@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.Experimental.XR;
-using UnityEngine.XR.ARKit;
-//using UnityEngine.XR.ARCore;
+//using UnityEngine.XR.ARKit;
+using UnityEngine.XR.ARCore;
 using UnityEngine.XR.ARSubsystems;
 
 public class PlacematIndicator : MonoBehaviour

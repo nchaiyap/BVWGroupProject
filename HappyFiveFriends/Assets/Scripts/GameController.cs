@@ -35,8 +35,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Instance = this;
-        Score.Instance.ResetScore(300);
-        //Score.Instance.ResetScore(200);
+        
+        //scoreManager = GameObject.GetComponent<Score>();
+        scoreManager.ResetScore(200);
+
+        //Score.Instance.ResetScore(300);
         StartCoroutine(spawnTray());
         timeIsRunning = true;
         //stackCount =0;
